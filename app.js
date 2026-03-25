@@ -2,7 +2,7 @@
    GolfGives — app.js
 ═══════════════════════════════════════════ */
 
-const API = 'http://localhost:3000/api';
+const API = 'https://golf-platform-b8mz.onrender.com/api';
 let token = localStorage.getItem('gg_token') || null;
 let user = null;
 let charities = [];

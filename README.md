@@ -11,7 +11,7 @@ Built for the Digital Heroes Full-Stack Trainee Selection Process.
 ```bash
 node server.js
 ```
-Server runs on: **http://localhost:3000**
+Server runs on: **https://golf-platform-b8mz.onrender.com**
 
 ### 2. Open the frontend
 Open `index.html` in your browser (or serve with any static server):
