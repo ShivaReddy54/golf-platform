@@ -1,0 +1,16 @@
+{
+  "name": "golfgives-platform",
+  "version": "1.0.0",
+  "description": "Golf Charity Subscription Platform — Digital Heroes Assignment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": ["golf", "charity", "subscription"],
+  "author": "Digital Heroes",
+  "license": "MIT"
+}

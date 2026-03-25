@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GolfGives — Play. Win. Give.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="logo">Golf<span>Gives</span></div>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#how" class="nav-link">How It Works</a>
+      <a href="#charities" class="nav-link">Charities</a>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-ghost" id="loginBtn">Login</button>
+      <button class="btn-primary" id="signupBtn">Join Now</button>
+      <button class="btn-ghost hidden" id="dashBtn">Dashboard</button>
+      <button class="btn-ghost hidden" id="logoutBtn">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ PAGES ═══════ -->
+<div id="pages">
+
+  <!-- HOME -->
+  <section id="homePage" class="page active">
+    <!-- Hero -->
+    <div class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-badge">⛳ Charity · Golf · Community</div>
+        <h1 class="hero-title">Play Golf.<br/>Win Prizes.<br/><span>Change Lives.</span></h1>
+        <p class="hero-sub">Enter your Stableford scores each month, join the prize draw, and automatically donate to the charity you love — all in one place.</p>
+        <div class="hero-actions">
+          <button class="btn-hero" id="heroJoin">Start Playing →</button>
+          <a href="#how" class="btn-ghost-light">Learn How</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num" id="statUsers">0</span><span class="stat-label">Members</span></div>
+          <div class="stat"><span class="stat-num" id="statPool">£0</span><span class="stat-label">Prize Pool</span></div>
+          <div class="stat"><span class="stat-num" id="statDraws">0</span><span class="stat-label">Draws Run</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="section" id="how">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-sub">Three simple steps to play, win, and give.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Subscribe</h3>
+          <p>Choose monthly (£10) or yearly (£100) and pick your charity.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Enter Scores</h3>
+          <p>Log your latest Stableford golf scores (1–45) each round.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Win &amp; Give</h3>
+          <p>Monthly draw matches your scores — win prizes, charity gets funded.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prize Pools -->
+    <div class="section bg-dark">
+      <h2 class="section-title">Prize Structure</h2>
+      <div class="prizes">
+        <div class="prize-card jackpot">
+          <div class="prize-icon">🏆</div>
+          <div class="prize-label">5-Match Jackpot</div>
+          <div class="prize-pct">40%</div>
+          <div class="prize-note">Rolls over if unclaimed</div>
+        </div>
+        <div class="prize-card">
+          <div class="prize-icon">🥈</div>
+          <div class="prize-label">4-Number Match</div>
+          <div class="prize-pct">35%</div>
+          <div class="prize-note">Split among winners</div>
+        </div>
+        <div class="prize-card">
+          <div class="prize-icon">🥉</div>
+          <div class="prize-label">3-Number Match</div>
+          <div class="prize-pct">25%</div>
+          <div class="prize-note">Split among winners</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charities -->
+    <div class="section" id="charities">
+      <h2 class="section-title">Supported Charities</h2>
+      <p class="section-sub">10% of every subscription goes to your chosen cause.</p>
+      <div class="charities-grid" id="charitiesGrid"></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Ready to make every round count?</h2>
+      <p>Join hundreds of golfers playing for purpose.</p>
+      <button class="btn-hero" id="ctaJoin">Get Started Today →</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner">
+        <div class="logo">Golf<span>Gives</span></div>
+        <p>© 2026 GolfGives · A Digital Heroes Project</p>
+      </div>
+    </footer>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="dashPage" class="page">
+    <div class="dash-wrap">
+      <div class="dash-sidebar">
+        <div class="logo mb-2">Golf<span>Gives</span></div>
+        <nav class="dash-nav">
+          <button class="dash-nav-item active" data-tab="overview">📊 Overview</button>
+          <button class="dash-nav-item" data-tab="scores">⛳ My Scores</button>
+          <button class="dash-nav-item" data-tab="draws">🎲 Draws</button>
+          <button class="dash-nav-item" data-tab="charity">❤️ Charity</button>
+          <button class="dash-nav-item" data-tab="settings">⚙️ Settings</button>
+        </nav>
+        <button class="btn-ghost mt-auto" id="dashLogout">← Logout</button>
+      </div>
+      <div class="dash-main">
+        <div class="dash-header">
+          <h2 id="dashGreeting">Welcome!</h2>
+          <div class="dash-sub" id="dashSub">Member Dashboard</div>
+        </div>
+
+        <!-- Overview Tab -->
+        <div class="tab-content active" id="tab-overview">
+          <div class="cards-row">
+            <div class="info-card">
+              <div class="card-label">Subscription</div>
+              <div class="card-val" id="subStatus">—</div>
+            </div>
+            <div class="info-card">
+              <div class="card-label">Scores Entered</div>
+              <div class="card-val" id="scoresCount">0 / 5</div>
+            </div>
+            <div class="info-card">
+              <div class="card-label">Current Pool</div>
+              <div class="card-val" id="poolVal">£0</div>
+            </div>
+            <div class="info-card highlight">
+              <div class="card-label">Total Won</div>
+              <div class="card-val" id="totalWon">£0</div>
+            </div>
+          </div>
+          <div class="info-card mt-1">
+            <div class="card-label">Your Charity Contribution (monthly)</div>
+            <div class="card-val" id="charityContrib">—</div>
+          </div>
+        </div>
+
+        <!-- Scores Tab -->
+        <div class="tab-content" id="tab-scores">
+          <h3>Enter New Score</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Stableford Score (1–45)</label>
+              <input type="number" id="scoreInput" min="1" max="45" placeholder="e.g. 32" />
+            </div>
+            <div class="form-group">
+              <label>Date Played</label>
+              <input type="date" id="scoreDateInput" />
+            </div>
+            <button class="btn-primary mt-auto" id="addScoreBtn">Add Score</button>
+          </div>
+          <p class="form-note">Only your latest 5 scores are kept. Oldest is removed when you add a 6th.</p>
+          <div id="scoresList" class="scores-list"></div>
+        </div>
+
+        <!-- Draws Tab -->
+        <div class="tab-content" id="tab-draws">
+          <h3>Recent Draws</h3>
+          <div id="drawsList"></div>
+        </div>
+
+        <!-- Charity Tab -->
+        <div class="tab-content" id="tab-charity">
+          <h3>Your Charity Selection</h3>
+          <div id="charitySelect" class="charity-select-grid"></div>
+          <div class="form-group mt-2">
+            <label>Contribution Percentage (min 10%)</label>
+            <input type="number" id="charityPctInput" min="10" max="100" placeholder="10" />
+          </div>
+          <button class="btn-primary mt-1" id="saveCharityBtn">Save Preferences</button>
+        </div>
+
+        <!-- Settings Tab -->
+        <div class="tab-content" id="tab-settings">
+          <h3>Account Settings</h3>
+          <div class="form-group">
+            <label>Display Name</label>
+            <input type="text" id="settingsName" placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label>Subscription Plan</label>
+            <select id="settingsPlan">
+              <option value="monthly">Monthly — £10/mo</option>
+              <option value="yearly">Yearly — £100/yr (save £20)</option>
+            </select>
+          </div>
+          <button class="btn-primary mt-1" id="saveSettingsBtn">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMIN DASHBOARD -->
+  <section id="adminPage" class="page">
+    <div class="dash-wrap">
+      <div class="dash-sidebar">
+        <div class="logo mb-2">Golf<span>Gives</span> <small>Admin</small></div>
+        <nav class="dash-nav">
+          <button class="dash-nav-item active" data-tab="astats">📈 Stats</button>
+          <button class="dash-nav-item" data-tab="ausers">👥 Users</button>
+          <button class="dash-nav-item" data-tab="adraw">🎲 Run Draw</button>
+          <button class="dash-nav-item" data-tab="awinners">🏆 Winners</button>
+        </nav>
+        <button class="btn-ghost mt-auto" id="adminLogout">← Logout</button>
+      </div>
+      <div class="dash-main">
+        <div class="dash-header">
+          <h2>Admin Control Centre</h2>
+          <div class="dash-sub">Full platform management</div>
+        </div>
+
+        <!-- Stats -->
+        <div class="tab-content active" id="tab-astats">
+          <div class="cards-row">
+            <div class="info-card"><div class="card-label">Active Members</div><div class="card-val" id="aActiveUsers">—</div></div>
+            <div class="info-card"><div class="card-label">Total Prize Pool</div><div class="card-val" id="aTotalPool">—</div></div>
+            <div class="info-card"><div class="card-label">Charity Raised</div><div class="card-val" id="aCharityTotal">—</div></div>
+            <div class="info-card"><div class="card-label">Draws Run</div><div class="card-val" id="aTotalDraws">—</div></div>
+          </div>
+          <div class="info-card mt-1 highlight">
+            <div class="card-label">Jackpot Rollover</div>
+            <div class="card-val" id="aJackpot">£0</div>
+          </div>
+        </div>
+
+        <!-- Users -->
+        <div class="tab-content" id="tab-ausers">
+          <h3>All Users</h3>
+          <div id="adminUsersList"></div>
+        </div>
+
+        <!-- Draw -->
+        <div class="tab-content" id="tab-adraw">
+          <h3>Run Monthly Draw</h3>
+          <div class="form-group">
+            <label>Draw Mode</label>
+            <select id="drawMode">
+              <option value="random">Random (Standard Lottery)</option>
+              <option value="algorithm">Algorithmic (Least Frequent Scores)</option>
+            </select>
+          </div>
+          <button class="btn-primary mt-1" id="runDrawBtn">Run Draw Now</button>
+          <div id="drawResult" class="draw-result"></div>
+        </div>
+
+        <!-- Winners -->
+        <div class="tab-content" id="tab-awinners">
+          <h3>Winners Verification</h3>
+          <div id="adminWinnersList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════ MODALS ═══════ -->
+<div id="modalOverlay" class="modal-overlay hidden">
+  <div class="modal" id="modal">
+
+    <!-- Login -->
+    <div id="loginForm" class="modal-content">
+      <button class="modal-close" id="closeModal">✕</button>
+      <h2>Welcome Back</h2>
+      <p class="modal-sub">Sign in to your GolfGives account</p>
+      <div class="form-group"><label>Email</label><input type="email" id="loginEmail" placeholder="you@email.com" /></div>
+      <div class="form-group"><label>Password</label><input type="password" id="loginPass" placeholder="••••••••" /></div>
+      <div id="loginError" class="form-error hidden"></div>
+      <button class="btn-primary w-full mt-1" id="loginSubmit">Sign In</button>
+      <p class="modal-switch">Don't have an account? <a href="#" id="switchToSignup">Join Now</a></p>
+    </div>
+
+    <!-- Signup -->
+    <div id="signupForm" class="modal-content hidden">
+      <button class="modal-close" id="closeModal2">✕</button>
+      <h2>Join GolfGives</h2>
+      <p class="modal-sub">Start playing for purpose today</p>
+      <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Your name" /></div>
+      <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="you@email.com" /></div>
+      <div class="form-group"><label>Password</label><input type="password" id="regPass" placeholder="Min 6 chars" /></div>
+      <div class="form-group">
+        <label>Plan</label>
+        <select id="regPlan">
+          <option value="monthly">Monthly — £10/month</option>
+          <option value="yearly">Yearly — £100/year (Save £20)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Choose Your Charity</label>
+        <select id="regCharity"></select>
+      </div>
+      <div id="signupError" class="form-error hidden"></div>
+      <button class="btn-primary w-full mt-1" id="signupSubmit">Create Account →</button>
+      <p class="modal-switch">Already a member? <a href="#" id="switchToLogin">Sign In</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
